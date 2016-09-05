@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RxTodo</string>
+    <string name="show_note">Show Note: %1s</string>
 </resources>

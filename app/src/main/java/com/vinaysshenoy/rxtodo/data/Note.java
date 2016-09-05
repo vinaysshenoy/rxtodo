@@ -5,13 +5,13 @@ import java.util.Date;
 /**
  * Created by vinaysshenoy on 05/09/16.
  */
-public class Note {
+public class Note implements Comparable<Note> {
 
-    public String id;
+    private String id;
 
-    public String text;
+    private String text;
 
-    public Date created;
+    private Date created;
 
     public String getId() {
         return id;
@@ -38,5 +38,10 @@ public class Note {
     public Note setCreated(Date created) {
         this.created = created;
         return this;
+    }
+
+    @Override
+    public int compareTo(Note o) {
+        return created.compareTo(o.created);
     }
 }

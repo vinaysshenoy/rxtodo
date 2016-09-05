@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="16dp"
+    >
+
+    <TextView
+        android:id="@+id/tv_noteDate"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:padding="4dp"
+        android:textColor="@color/md_grey_700"
+        tools:text="20th January 1970"
+        />
+
+    <TextView
+        android:id="@+id/tv_noteText"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:padding="4dp"
+        tools:text="My note needs to be typed in here"
+        />
+
+</LinearLayout>

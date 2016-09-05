@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_notes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/action_addNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_add_24dp"
+        />
+
+
+</FrameLayout>
