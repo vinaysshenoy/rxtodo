@@ -116,6 +116,7 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
         super.onStop();
         subscriptions.unsubscribe();
         subscriptions.clear();
+        presenter.onViewCleared();
     }
 
     @Override
