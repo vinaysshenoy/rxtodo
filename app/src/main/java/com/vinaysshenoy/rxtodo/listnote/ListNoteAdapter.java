@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.vinaysshenoy.rxtodo.R;
-import com.vinaysshenoy.rxtodo.data.Note;
+import com.vinaysshenoy.rxtodo.local.model.Note;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -88,8 +88,8 @@ public class ListNoteAdapter extends RecyclerView.Adapter<ListNoteAdapter.ListNo
         public void bindNode(Note note, OnNoteClicked onNoteClicked) {
             this.note = note;
             this.onNoteClicked = onNoteClicked;
-            noteTextView.setText(note.getText());
-            dateTextView.setText(dateFormat.format(note.getCreated()));
+            noteTextView.setText(note.text());
+            dateTextView.setText(dateFormat.format(note.created()));
         }
     }
 }

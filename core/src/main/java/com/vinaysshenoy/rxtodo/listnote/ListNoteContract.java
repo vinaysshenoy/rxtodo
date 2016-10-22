@@ -1,6 +1,7 @@
 package com.vinaysshenoy.rxtodo.listnote;
 
-import com.vinaysshenoy.rxtodo.data.Note;
+
+import com.vinaysshenoy.rxtodo.local.model.Note;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface ListNoteContract {
 
     interface View {
 
-        Observable<String> observeClickedNote();
+        Observable<String> observeOpenNoteWithId();
 
     }
 

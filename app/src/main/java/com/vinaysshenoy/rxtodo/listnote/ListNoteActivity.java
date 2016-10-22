@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.vinaysshenoy.rxtodo.R;
-import com.vinaysshenoy.rxtodo.data.Note;
 import com.vinaysshenoy.rxtodo.injection.Inject;
+import com.vinaysshenoy.rxtodo.local.model.Note;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new ListNotePresenter(Inject.get().notesStore());
+        presenter = new ListNotePresenter(Inject.get().noteStore());
         clickedNotesSubject = new SerializedSubject<>(PublishSubject.<String>create());
         setContentView(R.layout.view_listnotes);
     }
@@ -66,7 +66,7 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
         listNoteAdapter.setOnNoteClicked(new ListNoteAdapter.OnNoteClicked() {
             @Override
             public void clicked(Note note) {
-                clickedNotesSubject.onNext(note.getId());
+                clickedNotesSubject.onNext(note.id());
             }
         });
 
@@ -99,7 +99,7 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
                 .subscribe(new Action1<ListNoteContract.ShowViewNoteEvent>() {
                     @Override
                     public void call(ListNoteContract.ShowViewNoteEvent showViewNoteEvent) {
-                        Toast.makeText(ListNoteActivity.this, getString(R.string.show_note, showViewNoteEvent.note.getId()), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ListNoteActivity.this, getString(R.string.show_note, showViewNoteEvent.note.id()), Toast.LENGTH_SHORT).show();
                     }
                 }, new Action1<Throwable>() {
                     @Override
@@ -120,7 +120,7 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
     }
 
     @Override
-    public Observable<String> observeClickedNote() {
+    public Observable<String> observeOpenNoteWithId() {
         return clickedNotesSubject;
     }
 }

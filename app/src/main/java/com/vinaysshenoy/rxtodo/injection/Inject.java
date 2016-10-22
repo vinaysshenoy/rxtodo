@@ -1,6 +1,7 @@
 package com.vinaysshenoy.rxtodo.injection;
 
-import com.vinaysshenoy.rxtodo.data.store.NotesStore;
+import com.vinaysshenoy.rxtodo.data.store.NotesStoreImpl;
+import com.vinaysshenoy.rxtodo.local.store.NoteStore;
 
 /**
  * Created by vinaysshenoy on 05/09/16.
@@ -22,13 +23,13 @@ public class Inject {
         return instance;
     }
 
-    private final NotesStore notesStore;
+    private final NotesStoreImpl notesStoreImpl;
 
     private Inject() {
-        notesStore = new NotesStore();
+        notesStoreImpl = new NotesStoreImpl();
     }
 
-    public NotesStore notesStore() {
-        return notesStore;
+    public NoteStore noteStore() {
+        return notesStoreImpl;
     }
 }
