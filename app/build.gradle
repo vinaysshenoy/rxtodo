@@ -22,17 +22,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile "junit:junit:${rootProject.junitVersion}"
-    testCompile "org.mockito:mockito-core:${rootProject.mockitoVersion}"
-    testCompile "org.hamcrest:hamcrest-all:${rootProject.hamcrestVersion}"
+    compile project(':core')
     compile "com.android.support:appcompat-v7:${rootProject.androidSupportLibVersion}"
     compile "com.android.support:recyclerview-v7:${rootProject.androidSupportLibVersion}"
     compile "com.android.support:design:${rootProject.androidSupportLibVersion}"
-    compile "io.reactivex:rxjava:${rootProject.rxJavaVersion}"
     compile ("io.reactivex:rxandroid:${rootProject.rxAndroidVersion}") {
-        exclude group: 'io.reactivex', module: 'rxjava'
-    }
-    compile ("com.jakewharton.rxrelay:rxrelay:${rootProject.rxRelayVersion}") {
         exclude group: 'io.reactivex', module: 'rxjava'
     }
 }
