@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.androidTargetSdk
+    buildToolsVersion rootProject.androidBuildToolsVersion
 
     defaultConfig {
-        applicationId "com.vinaysshenoy.rxtodo"
-        minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.androidApplicationId
+        minSdkVersion rootProject.androidMinSdk
+        targetSdkVersion rootProject.androidTargetSdk
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -22,12 +22,17 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:recyclerview-v7:25.0.0'
-    compile 'com.android.support:design:25.0.0'
-    compile 'io.reactivex:rxjava:1.1.10'
-    compile ('io.reactivex:rxandroid:1.2.1') {
+    testCompile "junit:junit:${rootProject.junitVersion}"
+    testCompile "org.mockito:mockito-core:${rootProject.mockitoVersion}"
+    testCompile "org.hamcrest:hamcrest-all:${rootProject.hamcrestVersion}"
+    compile "com.android.support:appcompat-v7:${rootProject.androidSupportLibVersion}"
+    compile "com.android.support:recyclerview-v7:${rootProject.androidSupportLibVersion}"
+    compile "com.android.support:design:${rootProject.androidSupportLibVersion}"
+    compile "io.reactivex:rxjava:${rootProject.rxJavaVersion}"
+    compile ("io.reactivex:rxandroid:${rootProject.rxAndroidVersion}") {
+        exclude group: 'io.reactivex', module: 'rxjava'
+    }
+    compile ("com.jakewharton.rxrelay:rxrelay:${rootProject.rxRelayVersion}") {
         exclude group: 'io.reactivex', module: 'rxjava'
     }
 }
