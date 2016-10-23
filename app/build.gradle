@@ -26,10 +26,16 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':core')
+
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbFlowVersion}"
+
     compile "com.android.support:appcompat-v7:${rootProject.androidSupportLibVersion}"
     compile "com.android.support:recyclerview-v7:${rootProject.androidSupportLibVersion}"
     compile "com.android.support:design:${rootProject.androidSupportLibVersion}"
     compile ("io.reactivex:rxandroid:${rootProject.rxAndroidVersion}") {
         exclude group: 'io.reactivex', module: 'rxjava'
     }
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbFlowVersion}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbFlowVersion}"
+
 }

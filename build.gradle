@@ -14,6 +14,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url 'https://www.jitpack.io' }
     }
 }
 
@@ -30,6 +31,7 @@ ext {
     rxJavaVersion = '1.2.1'
     rxAndroidVersion = '1.2.1'
     rxRelayVersion = '1.2.0'
+    dbFlowVersion = '3.1.1'
 
     //Test dependencies
     junitVersion = '4.12'
