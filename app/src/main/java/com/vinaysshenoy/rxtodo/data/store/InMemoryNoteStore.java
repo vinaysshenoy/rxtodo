@@ -1,6 +1,6 @@
 package com.vinaysshenoy.rxtodo.data.store;
 
-import com.vinaysshenoy.rxtodo.data.NoteImpl;
+import com.vinaysshenoy.rxtodo.data.InMemoryNote;
 import com.vinaysshenoy.rxtodo.local.model.Note;
 import com.vinaysshenoy.rxtodo.local.store.NoteStore;
 
@@ -19,13 +19,13 @@ import rx.schedulers.Schedulers;
 /**
  * Created by vinaysshenoy on 05/09/16.
  */
-public class NotesStoreImpl implements NoteStore {
+public class InMemoryNoteStore implements NoteStore {
 
     public static final Random NOTE_ID_GENERATOR = new Random();
 
-    private final Map<String, NoteImpl> notes;
+    private final Map<String, InMemoryNote> notes;
 
-    public NotesStoreImpl() {
+    public InMemoryNoteStore() {
         this.notes = new ConcurrentHashMap<>((int) (16 * 1.33F));
     }
 
@@ -36,7 +36,7 @@ public class NotesStoreImpl implements NoteStore {
                 new Callable<List<Note>>() {
                     @Override
                     public List<Note> call() throws Exception {
-                        final List<Note> notes = new ArrayList<Note>(NotesStoreImpl.this.notes.values());
+                        final List<Note> notes = new ArrayList<Note>(InMemoryNoteStore.this.notes.values());
                         if (sortAscending) {
                             //Oldest dates first
                             Collections.sort(notes);
@@ -69,7 +69,7 @@ public class NotesStoreImpl implements NoteStore {
                     @Override
                     public Note call() throws Exception {
 
-                        final NoteImpl note = new NoteImpl();
+                        final InMemoryNote note = new InMemoryNote();
                         note.setId(Long.toHexString(NOTE_ID_GENERATOR.nextLong()));
                         note.setText(text);
                         note.setCreated(created);

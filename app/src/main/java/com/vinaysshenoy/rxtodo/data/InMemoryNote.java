@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by vinaysshenoy on 05/09/16.
  */
-public class NoteImpl extends Note {
+public class InMemoryNote extends Note {
 
     private String id;
 

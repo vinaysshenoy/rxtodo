@@ -1,6 +1,6 @@
 package com.vinaysshenoy.rxtodo.injection;
 
-import com.vinaysshenoy.rxtodo.data.store.NotesStoreImpl;
+import com.vinaysshenoy.rxtodo.data.store.InMemoryNoteStore;
 import com.vinaysshenoy.rxtodo.local.store.NoteStore;
 
 /**
@@ -9,12 +9,17 @@ import com.vinaysshenoy.rxtodo.local.store.NoteStore;
 public class Inject {
 
     private static Inject instance;
+    private final NoteStore noteStore;
+
+    private Inject() {
+        noteStore = new InMemoryNoteStore();
+    }
 
     public static Inject get() {
 
-        if(instance == null) {
+        if (instance == null) {
             synchronized (Inject.class) {
-                if(instance == null) {
+                if (instance == null) {
                     instance = new Inject();
                 }
             }
@@ -23,13 +28,7 @@ public class Inject {
         return instance;
     }
 
-    private final NotesStoreImpl notesStoreImpl;
-
-    private Inject() {
-        notesStoreImpl = new NotesStoreImpl();
-    }
-
     public NoteStore noteStore() {
-        return notesStoreImpl;
+        return noteStore;
     }
 }
