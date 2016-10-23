@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">RxTodo</string>
     <string name="show_note">Show Note: %1s</string>
+    <string name="note_created">Note created with id: %1s</string>
+    <string name="note_text">Note Text:</string>
+    <string name="done">Done</string>
 </resources>

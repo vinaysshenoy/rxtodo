@@ -9,7 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.jakewharton.rxrelay.PublishRelay;
+import com.jakewharton.rxrelay.Relay;
 import com.vinaysshenoy.rxtodo.R;
+import com.vinaysshenoy.rxtodo.createnote.CreateNoteActivity;
 import com.vinaysshenoy.rxtodo.injection.Inject;
 import com.vinaysshenoy.rxtodo.local.model.Note;
 
@@ -18,10 +21,7 @@ import java.util.List;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.internal.util.SubscriptionList;
-import rx.subjects.PublishSubject;
-import rx.subjects.SerializedSubject;
-import rx.subjects.Subject;
+import rx.subscriptions.CompositeSubscription;
 
 /**
  * Created by vinaysshenoy on 05/09/16.
@@ -33,19 +33,19 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
     //This should ideally be injected using a DI framework
     private ListNoteContract.UserActionsObserver presenter;
 
-    private Subject<String, String> clickedNotesSubject;
+    private Relay<String, String> clickedNotesSubject;
 
     private RecyclerView notesRecyclerView;
 
     private ListNoteAdapter listNoteAdapter;
 
-    private SubscriptionList subscriptions;
+    private CompositeSubscription subscriptions;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = new ListNotePresenter(Inject.get().noteStore());
-        clickedNotesSubject = new SerializedSubject<>(PublishSubject.<String>create());
+        clickedNotesSubject = PublishRelay.<String>create().toSerialized();
         setContentView(R.layout.view_listnotes);
     }
 
@@ -55,7 +55,7 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
         findViewById(R.id.action_addNote).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Add Note screen
+                CreateNoteActivity.start(ListNoteActivity.this);
             }
         });
         notesRecyclerView = (RecyclerView) findViewById(R.id.list_notes);
@@ -66,7 +66,7 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
         listNoteAdapter.setOnNoteClicked(new ListNoteAdapter.OnNoteClicked() {
             @Override
             public void clicked(Note note) {
-                clickedNotesSubject.onNext(note.id());
+                clickedNotesSubject.call(note.id());
             }
         });
 
@@ -78,7 +78,7 @@ public class ListNoteActivity extends AppCompatActivity implements ListNoteContr
     protected void onStart() {
         super.onStart();
 
-        subscriptions = new SubscriptionList();
+        subscriptions = new CompositeSubscription();
 
         subscriptions.add(presenter.observeDisplayNotes()
                 .observeOn(AndroidSchedulers.mainThread())
