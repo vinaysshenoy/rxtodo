@@ -10,8 +10,18 @@
     >
 
     <TextView
+        android:id="@+id/tv_noteText"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:padding="4dp"
+        tools:text="My note needs to be typed in here"
+        />
+
+    <TextView
         android:id="@+id/tv_noteDate"
-        style="@style/TextAppearance.AppCompat.Headline"
+        style="@style/TextAppearance.AppCompat.Caption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
@@ -20,14 +30,5 @@
         tools:text="20th January 1970"
         />
 
-    <TextView
-        android:id="@+id/tv_noteText"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:padding="4dp"
-        tools:text="My note needs to be typed in here"
-        />
 
 </LinearLayout>

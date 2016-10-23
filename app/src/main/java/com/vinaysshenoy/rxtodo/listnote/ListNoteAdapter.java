@@ -58,7 +58,7 @@ public class ListNoteAdapter extends RecyclerView.Adapter<ListNoteAdapter.ListNo
 
     public static final class ListNoteViewHolder extends RecyclerView.ViewHolder {
 
-        private static final String DATE_FORMAT_STRING = "EEE, MMM d, yyyy";
+        private static final String DATE_FORMAT_STRING = "EEE, MMM d, yyyy hh:mm:ss a";
 
         private final TextView noteTextView;
 

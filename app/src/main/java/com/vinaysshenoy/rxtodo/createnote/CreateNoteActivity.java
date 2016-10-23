@@ -71,6 +71,8 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNoteC
 
             if (isEnteredNoteInfoValid()) {
                 createNote();
+            } else {
+                Toast.makeText(CreateNoteActivity.this, R.string.error_cannot_be_empty, Toast.LENGTH_SHORT).show();
             }
             return true;
         }

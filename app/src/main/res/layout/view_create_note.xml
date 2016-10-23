@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:gravity="start|top"
-        android:inputType="textAutoComplete|textCapSentences|textImeMultiLine"
+        android:inputType="textAutoComplete|textCapSentences|textMultiLine"
         tools:text="Some random unimportant text"
         />
 
