@@ -1,6 +1,6 @@
 package com.vinaysshenoy.rxtodo.injection;
 
-import com.vinaysshenoy.rxtodo.data.local.memorystore.InMemoryNoteStore;
+import com.vinaysshenoy.rxtodo.data.local.dbflowstore.DbFlowNoteStore;
 import com.vinaysshenoy.rxtodo.local.store.NoteStore;
 
 /**
@@ -12,7 +12,7 @@ public class Inject {
     private final NoteStore noteStore;
 
     private Inject() {
-        noteStore = new InMemoryNoteStore();
+        noteStore = new DbFlowNoteStore();
     }
 
     public static Inject get() {
