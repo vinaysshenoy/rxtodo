@@ -11,6 +11,9 @@ android {
         versionCode rootProject.versionCode
         versionName rootProject.versionName
         vectorDrawables.useSupportLibrary = true
+        jackOptions {
+            enabled true
+        }
     }
     buildTypes {
         release {
