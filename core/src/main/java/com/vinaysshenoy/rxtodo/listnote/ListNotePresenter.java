@@ -47,22 +47,10 @@ public class ListNotePresenter implements ListNoteContract.UserActionsObserver {
 
         subscriptions.add(
                 view.observeOpenNoteWithId()
-                        .flatMap(new Func1<String, Observable<Note>>() {
+                        .subscribe(new Action1<String>() {
                             @Override
-                            public Observable<Note> call(String noteId) {
-                                return notesStore.findById(noteId);
-                            }
-                        })
-                        .filter(new Func1<Note, Boolean>() {
-                            @Override
-                            public Boolean call(Note note) {
-                                return note != null;
-                            }
-                        })
-                        .subscribe(new Action1<Note>() {
-                            @Override
-                            public void call(Note note) {
-                                showViewNoteEventSubject.call(new ListNoteContract.ShowViewNoteEvent(note));
+                            public void call(String noteId) {
+                                showNoteWithId(noteId);
                             }
                         })
         );
@@ -70,7 +58,30 @@ public class ListNotePresenter implements ListNoteContract.UserActionsObserver {
         displayNotes();
     }
 
-    private void displayNotes() {
+    void showNoteWithId(String noteId) {
+
+        Observable.just(noteId)
+                .flatMap(new Func1<String, Observable<Note>>() {
+                    @Override
+                    public Observable<Note> call(String noteId) {
+                        return notesStore.findById(noteId);
+                    }
+                })
+                .filter(new Func1<Note, Boolean>() {
+                    @Override
+                    public Boolean call(Note note) {
+                        return note != null;
+                    }
+                })
+                .subscribe(new Action1<Note>() {
+                    @Override
+                    public void call(Note note) {
+                        showViewNoteEventSubject.call(new ListNoteContract.ShowViewNoteEvent(note));
+                    }
+                });
+    }
+
+    void displayNotes() {
 
         notesStore.allNotes(false)
                 .filter(new Func1<List<Note>, Boolean>() {
