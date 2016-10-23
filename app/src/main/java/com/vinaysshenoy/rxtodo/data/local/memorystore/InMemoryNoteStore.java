@@ -1,6 +1,5 @@
-package com.vinaysshenoy.rxtodo.data.store;
+package com.vinaysshenoy.rxtodo.data.local.memorystore;
 
-import com.vinaysshenoy.rxtodo.data.InMemoryNote;
 import com.vinaysshenoy.rxtodo.local.model.Note;
 import com.vinaysshenoy.rxtodo.local.store.NoteStore;
 
@@ -21,7 +20,7 @@ import rx.schedulers.Schedulers;
  */
 public class InMemoryNoteStore implements NoteStore {
 
-    public static final Random NOTE_ID_GENERATOR = new Random();
+    private final Random noteIdGenerator = new Random();
 
     private final Map<String, InMemoryNote> notes;
 
@@ -70,7 +69,7 @@ public class InMemoryNoteStore implements NoteStore {
                     public Note call() throws Exception {
 
                         final InMemoryNote note = new InMemoryNote();
-                        note.setId(Long.toHexString(NOTE_ID_GENERATOR.nextLong()));
+                        note.setId(Long.toHexString(noteIdGenerator.nextLong()));
                         note.setText(text);
                         note.setCreated(created);
 

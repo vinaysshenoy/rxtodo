@@ -1,6 +1,6 @@
 package com.vinaysshenoy.rxtodo.injection;
 
-import com.vinaysshenoy.rxtodo.data.store.InMemoryNoteStore;
+import com.vinaysshenoy.rxtodo.data.local.memorystore.InMemoryNoteStore;
 import com.vinaysshenoy.rxtodo.local.store.NoteStore;
 
 /**

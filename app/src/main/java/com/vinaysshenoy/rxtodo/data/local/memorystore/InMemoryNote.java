@@ -1,4 +1,4 @@
-package com.vinaysshenoy.rxtodo.data;
+package com.vinaysshenoy.rxtodo.data.local.memorystore;
 
 import com.vinaysshenoy.rxtodo.local.model.Note;
 
