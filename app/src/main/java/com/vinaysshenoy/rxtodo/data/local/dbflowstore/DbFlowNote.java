@@ -5,7 +5,7 @@ import com.raizlabs.android.dbflow.annotation.NotNull;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.Model;
-import com.vinaysshenoy.rxtodo.local.model.Note;
+import com.vinaysshenoy.rxtodo.local.Note;
 
 import java.util.Date;
 
@@ -65,20 +65,5 @@ public class DbFlowNote extends Note implements Model {
     @Override
     public Date created() {
         return created;
-    }
-
-    @Override
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @Override
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    @Override
-    public void setCreated(Date created) {
-        this.created = created;
     }
 }

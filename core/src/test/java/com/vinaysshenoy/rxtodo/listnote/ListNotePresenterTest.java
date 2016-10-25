@@ -1,8 +1,8 @@
 package com.vinaysshenoy.rxtodo.listnote;
 
 import com.vinaysshenoy.rxtodo.RxSchedulersOverrideRule;
-import com.vinaysshenoy.rxtodo.local.model.Note;
-import com.vinaysshenoy.rxtodo.local.store.NoteStore;
+import com.vinaysshenoy.rxtodo.local.Note;
+import com.vinaysshenoy.rxtodo.local.NoteStore;
 
 import org.junit.After;
 import org.junit.Before;

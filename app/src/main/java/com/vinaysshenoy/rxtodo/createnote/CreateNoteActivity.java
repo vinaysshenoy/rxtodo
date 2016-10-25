@@ -17,7 +17,7 @@ import com.jakewharton.rxrelay.PublishRelay;
 import com.jakewharton.rxrelay.Relay;
 import com.vinaysshenoy.rxtodo.R;
 import com.vinaysshenoy.rxtodo.injection.Inject;
-import com.vinaysshenoy.rxtodo.local.model.Note;
+import com.vinaysshenoy.rxtodo.local.Note;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;

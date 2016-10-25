@@ -1,7 +1,7 @@
 package com.vinaysshenoy.rxtodo.listnote;
 
 
-import com.vinaysshenoy.rxtodo.local.model.Note;
+import com.vinaysshenoy.rxtodo.local.Note;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.vinaysshenoy.rxtodo.data.local.memorystore;
 
-import com.vinaysshenoy.rxtodo.local.model.Note;
-import com.vinaysshenoy.rxtodo.local.store.NoteStore;
+import com.vinaysshenoy.rxtodo.local.Note;
+import com.vinaysshenoy.rxtodo.local.NoteStore;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,9 +69,9 @@ public class InMemoryNoteStore implements NoteStore {
                     public Note call() throws Exception {
 
                         final InMemoryNote note = new InMemoryNote();
-                        note.setId(Long.toHexString(noteIdGenerator.nextLong()));
-                        note.setText(text);
-                        note.setCreated(created);
+                        note.id = Long.toHexString(noteIdGenerator.nextLong());
+                        note.text = text;
+                        note.created = created;
 
                         notes.put(note.id(), note);
                         return note;

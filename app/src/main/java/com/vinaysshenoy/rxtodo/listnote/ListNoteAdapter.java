@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.vinaysshenoy.rxtodo.R;
-import com.vinaysshenoy.rxtodo.local.model.Note;
+import com.vinaysshenoy.rxtodo.local.Note;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

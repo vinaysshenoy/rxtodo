@@ -1,7 +1,7 @@
 package com.vinaysshenoy.rxtodo.injection;
 
 import com.vinaysshenoy.rxtodo.data.local.dbflowstore.DbFlowNoteStore;
-import com.vinaysshenoy.rxtodo.local.store.NoteStore;
+import com.vinaysshenoy.rxtodo.local.NoteStore;
 
 /**
  * Created by vinaysshenoy on 05/09/16.

@@ -2,8 +2,8 @@ package com.vinaysshenoy.rxtodo.createnote;
 
 import com.jakewharton.rxrelay.PublishRelay;
 import com.jakewharton.rxrelay.Relay;
-import com.vinaysshenoy.rxtodo.local.model.Note;
-import com.vinaysshenoy.rxtodo.local.store.NoteStore;
+import com.vinaysshenoy.rxtodo.local.Note;
+import com.vinaysshenoy.rxtodo.local.NoteStore;
 
 import java.util.Date;
 

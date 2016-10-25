@@ -4,8 +4,8 @@ import com.raizlabs.android.dbflow.config.FlowManager;
 import com.raizlabs.android.dbflow.sql.language.Delete;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.raizlabs.android.dbflow.structure.ModelAdapter;
-import com.vinaysshenoy.rxtodo.local.model.Note;
-import com.vinaysshenoy.rxtodo.local.store.NoteStore;
+import com.vinaysshenoy.rxtodo.local.Note;
+import com.vinaysshenoy.rxtodo.local.NoteStore;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -92,9 +92,9 @@ public class DbFlowNoteStore implements NoteStore {
                     public Note call() throws Exception {
 
                         final DbFlowNote dbFlowNote = new DbFlowNote();
-                        dbFlowNote.setId(Long.toHexString(noteIdGenerator.nextLong()));
-                        dbFlowNote.setText(text);
-                        dbFlowNote.setCreated(created);
+                        dbFlowNote.id = Long.toHexString(noteIdGenerator.nextLong());
+                        dbFlowNote.text = text;
+                        dbFlowNote.created = created;
 
                         modelAdapter.save(dbFlowNote);
 

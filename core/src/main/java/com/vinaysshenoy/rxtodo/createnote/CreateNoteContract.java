@@ -1,6 +1,6 @@
 package com.vinaysshenoy.rxtodo.createnote;
 
-import com.vinaysshenoy.rxtodo.local.model.Note;
+import com.vinaysshenoy.rxtodo.local.Note;
 
 import rx.Observable;
 
