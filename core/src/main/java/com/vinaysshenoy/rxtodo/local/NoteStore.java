@@ -1,6 +1,4 @@
-package com.vinaysshenoy.rxtodo.local.store;
-
-import com.vinaysshenoy.rxtodo.local.model.Note;
+package com.vinaysshenoy.rxtodo.local;
 
 import java.util.Date;
 import java.util.List;

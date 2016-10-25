@@ -1,4 +1,4 @@
-package com.vinaysshenoy.rxtodo.local.model;
+package com.vinaysshenoy.rxtodo.local;
 
 import java.util.Date;
 
